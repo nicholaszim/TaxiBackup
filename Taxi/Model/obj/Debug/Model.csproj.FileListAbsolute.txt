@@ -1,0 +1,7 @@
+C:\Users\Nick\Documents\GitHub\Taxi\Model\bin\Debug\Model.dll
+C:\Users\Nick\Documents\GitHub\Taxi\Model\bin\Debug\Model.pdb
+C:\Users\Nick\Documents\GitHub\Taxi\Model\bin\Debug\Common.dll
+C:\Users\Nick\Documents\GitHub\Taxi\Model\bin\Debug\Common.pdb
+C:\Users\Nick\Documents\GitHub\Taxi\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+C:\Users\Nick\Documents\GitHub\Taxi\Model\obj\Debug\Model.dll
+C:\Users\Nick\Documents\GitHub\Taxi\Model\obj\Debug\Model.pdb

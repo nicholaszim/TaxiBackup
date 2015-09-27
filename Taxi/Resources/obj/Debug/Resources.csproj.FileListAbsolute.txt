@@ -1,0 +1,10 @@
+C:\Users\Nick\Documents\GitHub\Taxi\Resources\bin\Debug\Resources.dll
+C:\Users\Nick\Documents\GitHub\Taxi\Resources\bin\Debug\Resources.pdb
+C:\Users\Nick\Documents\GitHub\Taxi\Resources\bin\Debug\uk-UA\Resources.resources.dll
+C:\Users\Nick\Documents\GitHub\Taxi\Resources\obj\Debug\Resources.Resource.resources
+C:\Users\Nick\Documents\GitHub\Taxi\Resources\obj\Debug\Resources.Resource.uk-UA.resources
+C:\Users\Nick\Documents\GitHub\Taxi\Resources\obj\Debug\Resources.csproj.GenerateResource.Cache
+C:\Users\Nick\Documents\GitHub\Taxi\Resources\obj\Debug\uk-UA\Resources.resources.dll
+C:\Users\Nick\Documents\GitHub\Taxi\Resources\obj\Debug\Resources.dll
+C:\Users\Nick\Documents\GitHub\Taxi\Resources\obj\Debug\Resources.pdb
+C:\Users\Nick\Documents\GitHub\Taxi\Resources\obj\Debug\Resources.csprojResolveAssemblyReference.cache

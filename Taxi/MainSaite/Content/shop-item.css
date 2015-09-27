@@ -1,0 +1,94 @@
+/*!
+ * Start Bootstrap - Shop Item HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+body {
+    padding-top: 20px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+.thumbnail img {
+    width: 100%;
+}
+
+.ratings {
+    padding-right: 10px;
+    padding-left: 10px;
+    color: #d17581;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+    color: #333;
+}
+
+footer {
+    margin: 50px 0;
+}
+
+
+.lang {
+ height: auto;
+     width: 50%;
+    margin: 0 auto;
+}
+
+    .lang > ul{
+     margin-left: 35%;       
+    }
+
+    .lang > ul > li {
+     
+        display:inline-block;
+    }
+
+        .lang > ul.nav > a {
+        width: 50%;
+        margin:0 auto;
+        
+    }
+
+.language {
+margin: 0 auto;
+}
+
+.ActivLang{
+    color:black;
+    font-weight:bold;
+}
+
+.qwert img{
+width:100%;
+
+}
+
+.largeIcon {
+    font-size:25px;
+    padding-left:30px;
+    padding-right:35px;
+}
+
+a:hover {
+text-decoration:none;
+}
+
+.slider-controls > .well {
+    margin-top:60px;
+}
+
+#socialCont {
+align-content:center;
+}
+
+#socialCont>a {
+padding-left:10px;
+}
+
+.topLogo { 
+margin-bottom: 25px;
+}
