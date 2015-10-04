@@ -81,7 +81,7 @@ namespace BAL.Manager
 		public UserDTO GetByUserName(string login, string password)
 		{
 			var item = uOW.UserRepo.Get()
-				.Where(s => (s.UserName == login && s.Password == password))
+				.Where(s => (s.UserName.ToUpper() == login.ToUpper() && s.Password == password))
 				.FirstOrDefault();
 
 			if (item != null)
@@ -131,7 +131,7 @@ namespace BAL.Manager
 		
 		public bool IfUserNameExists(string userName)
 		{
-			var item = uOW.UserRepo.Get().Where(s => (s.UserName == userName)).FirstOrDefault();
+			var item = uOW.UserRepo.Get().Where(s => (s.UserName.ToUpper() == userName.ToUpper())).FirstOrDefault();
 			if (item != null)
 			{
 				return true;
@@ -141,7 +141,7 @@ namespace BAL.Manager
 
 		public bool IfEmailExists(string email)
 		{
-			var item = uOW.UserRepo.Get().Where(s => (s.Email == email)).FirstOrDefault();
+			var item = uOW.UserRepo.Get().Where(s => (s.Email.ToUpper() == email.ToUpper())).FirstOrDefault();
 			if (item != null)
 			{
 				return true;
@@ -260,23 +260,14 @@ namespace BAL.Manager
 					from U in listUsers.Where(x => x.RoleId == 3)
 					join V in listVIPClients
 						on U.Id equals V.UserId into joined
-					from V in joined.DefaultIfEmpty()
-					select new VIPClientDTO
+					from V in joined.DefaultIfEmpty().Where(x => x == null)
+					select new UserDTO
 					{
-						Id = V != null ? V.Id : 0,
-						UserId = U.Id,
+						Id = U.Id,
 						UserName = U.UserName
 					};
 
-			var dropbox =
-					from Q in RigthJoin.Where(x => x.Id == 0)
-					select new UserDTO
-					{
-						Id = Q.UserId,
-						UserName = Q.UserName
-					};
-
-			foreach (UserDTO U in dropbox)
+			foreach (UserDTO U in RigthJoin)
 			{
 				ListUserDTO.Add(U);
 			}
@@ -288,6 +279,21 @@ namespace BAL.Manager
 		{
 			int CurrentId = uOW.UserRepo.Get(x => x.UserName == UserName).Select(d => d.Id).First();
 			uOW.VIPClientRepo.Insert(new VIPClient { UserId = CurrentId, SetDate = System.DateTime.Today });
+			uOW.Save();
+		}
+
+		public bool IsUserNameCorrect(string name)
+		{
+			for (int index = 0; index < name.Length; index++)
+				if (!Char.IsLetterOrDigit(name[index]))
+					return false;
+						return true;
+		}
+
+		public void deleteVIPById(int id)
+		{
+			VIPClient a = uOW.VIPClientRepo.GetByID(id);
+			uOW.VIPClientRepo.Delete(a);
 			uOW.Save();
 		}
 

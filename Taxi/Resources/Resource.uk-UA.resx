@@ -160,7 +160,7 @@
     <value>Ім’я Користувача</value>
   </data>
   <data name="AddNewCar" xml:space="preserve">
-    <value>Додайте нову машину </value>
+    <value>Додайте нове авто</value>
   </data>
   <data name="AddYourCarInfoHere" xml:space="preserve">
     <value>Введіть свою інформацію тут!</value>
@@ -226,7 +226,7 @@
     <value>Контактна інформація</value>
   </data>
   <data name="CarPetrolDiesel" xml:space="preserve">
-    <value>Дизель</value>
+    <value>Дизельне паливо</value>
   </data>
   <data name="CarPetrolNormal" xml:space="preserve">
     <value>Нормаль-80</value>
@@ -235,13 +235,13 @@
     <value>Інший</value>
   </data>
   <data name="CarPetrolPremium" xml:space="preserve">
-    <value>95</value>
+    <value>Преміум-95</value>
   </data>
   <data name="CarPetrolRegular" xml:space="preserve">
-    <value>92</value>
+    <value>Звичайний-92</value>
   </data>
   <data name="CarPetrolSuper" xml:space="preserve">
-    <value>98</value>
+    <value>Супер-98</value>
   </data>
   <data name="LoginEmailExist" xml:space="preserve">
     <value>ололо</value>
@@ -287,5 +287,203 @@
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Налаштування</value>
+  </data>
+  <data name="ActionsColumn" xml:space="preserve">
+    <value>Дії</value>
+  </data>
+  <data name="CarEditor" xml:space="preserve">
+    <value>Автопарк</value>
+  </data>
+  <data name="CarResetBtn" xml:space="preserve">
+    <value>Відмінити</value>
+  </data>
+  <data name="CarSaveBtn" xml:space="preserve">
+    <value>Зберегти</value>
+  </data>
+  <data name="CarsDeleteInfo" xml:space="preserve">
+    <value>Видалення інформації</value>
+  </data>
+  <data name="CarsDetails" xml:space="preserve">
+    <value>Детальна інформація</value>
+  </data>
+  <data name="CarToMenuBtn" xml:space="preserve">
+    <value>Меню</value>
+  </data>
+  <data name="CreateAttention1" xml:space="preserve">
+    <value>Введіть усю необхідну інформацію у форму знизу.</value>
+  </data>
+  <data name="CreateAttention2" xml:space="preserve">
+    <value>Вказуйте достовірну інформацію.</value>
+  </data>
+  <data name="CreateHeader1" xml:space="preserve">
+    <value>Це сторінка реєстрації авто</value>
+  </data>
+  <data name="CreateHeader2" xml:space="preserve">
+    <value>Майте на увазі</value>
+  </data>
+  <data name="DeleteAttention1" xml:space="preserve">
+    <value>Ви намагаетесь видалити усю інформацію про вибране авто. Видалена інформація буде втрачена</value>
+  </data>
+  <data name="DeleteHeader1" xml:space="preserve">
+    <value>Увага!</value>
+  </data>
+  <data name="DetailsAttention1" xml:space="preserve">
+    <value>Тут ви можете продивитись усю введену вами інформацію по тій чи іншій машині</value>
+  </data>
+  <data name="DetailsHeader1" xml:space="preserve">
+    <value>Детальна інформація</value>
+  </data>
+  <data name="detailsString" xml:space="preserve">
+    <value>Деталі</value>
+  </data>
+  <data name="EditAttention1" xml:space="preserve">
+    <value>Введіть всю необхідну інформацію у форму знизу.</value>
+  </data>
+  <data name="EditAttention2" xml:space="preserve">
+    <value>Змінюйте чи видаляйте інформацію з обережністю.</value>
+  </data>
+  <data name="EditHeader1" xml:space="preserve">
+    <value>Це форма редагування інформації</value>
+  </data>
+  <data name="EditHeader2" xml:space="preserve">
+    <value>Обережно</value>
+  </data>
+  <data name="EditYourCar" xml:space="preserve">
+    <value>Змінити інформацію</value>
+  </data>
+  <data name="Garage" xml:space="preserve">
+    <value>Ваш гараж</value>
+  </data>
+  <data name="GarageAttention1" xml:space="preserve">
+    <value>Уся інформація про ваші авто знаходиться тут. Ви завжди можете продивитись, змінити, додати чи видалити необхідне вам в будь-який час.</value>
+  </data>
+  <data name="GarageAttention2" xml:space="preserve">
+    <value>Не забувайте перевіряти введену вами інформацію на актуальність. Не забувайте оновлювати інформацію.</value>
+  </data>
+  <data name="GarageHeader1" xml:space="preserve">
+    <value>Це ваш віртуальний гараж</value>
+  </data>
+  <data name="GarageHeader2" xml:space="preserve">
+    <value>Майте на увазі</value>
+  </data>
+  <data name="Greeting" xml:space="preserve">
+    <value>З поверненням</value>
+  </data>
+  <data name="ChangeMenu" xml:space="preserve">
+    <value>Меню змін</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Опис</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Увійти</value>
+  </data>
+  <data name="OrderTaxi" xml:space="preserve">
+    <value>Замовити Таксі</value>
+  </data>
+  <data name="SingUp" xml:space="preserve">
+    <value>Регістр</value>
+  </data>
+  <data name="UserId" xml:space="preserve">
+    <value>Номер користувача</value>
+  </data>
+  <data name="UserMenu" xml:space="preserve">
+    <value>Список користувачів</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>Місто</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Додаткові відомості</value>
+  </data>
+  <data name="CreateLocation" xml:space="preserve">
+    <value>Будь ласка, оберіть район, в якому Ви зараз знаходитися.</value>
+  </data>
+  <data name="CreateNewAddressString" xml:space="preserve">
+    <value>Додати нову адресу</value>
+  </data>
+  <data name="DefaultValueOfCity" xml:space="preserve">
+    <value>Чернівці</value>
+  </data>
+  <data name="EditLocation" xml:space="preserve">
+    <value>Якщо Ви бажаєте змінити своє місцезнаходження, будь ласка,  обереть район:</value>
+  </data>
+  <data name="NumberHouse" xml:space="preserve">
+    <value>Номер будинку</value>
+  </data>
+  <data name="Street" xml:space="preserve">
+    <value>Вулиця</value>
+  </data>
+  <data name="TitleCreateAddress" xml:space="preserve">
+    <value>Додавання нової адреси</value>
+  </data>
+  <data name="TitleCreateLocation" xml:space="preserve">
+    <value>Визначення Вашого місцезнаходження</value>
+  </data>
+  <data name="TitleDeleteAddress" xml:space="preserve">
+    <value>Видалення данної адреси з списку</value>
+  </data>
+  <data name="TitleEditAddress" xml:space="preserve">
+    <value>Редагування адреси</value>
+  </data>
+  <data name="TitleEditLocation" xml:space="preserve">
+    <value>Зміна Вашого місцезнаходження</value>
+  </data>
+  <data name="TitleLeftMenuUserAddress" xml:space="preserve">
+    <value>Улюблені адреси</value>
+  </data>
+  <data name="TitleMainMenuAddress" xml:space="preserve">
+    <value>Список Ваших улюбених адрес</value>
+  </data>
+  <data name="TitleMainMenuLocation" xml:space="preserve">
+    <value>Ваше місцезнаходження</value>
+  </data>
+  <data name="YourCurrentLocation" xml:space="preserve">
+    <value>Ви зараз знаходитися на </value>
+  </data>
+  <data name="ConfirmDeletingAddress" xml:space="preserve">
+    <value>Ви впевненні, що бажаєте видалити данну адресу зі списку?</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Контакти</value>
+  </data>
+  <data name="DistrictPartAttention1" xml:space="preserve">
+    <value>Тут ви можете знайти інформацію про інших водіїв які в данний момент працюють. Щоб розпочати зміну, натисніть "Почати зміну".</value>
+  </data>
+  <data name="DistrictPartAttention2" xml:space="preserve">
+    <value>Не забувайте натиснути "Закінчити зміну" після завершення роботи.</value>
+  </data>
+  <data name="DistrictPartHeader1" xml:space="preserve">
+    <value>Це ваше робоче місце</value>
+  </data>
+  <data name="DistrictPartHeader2" xml:space="preserve">
+    <value>Майте на увазі</value>
+  </data>
+  <data name="WorkShift" xml:space="preserve">
+    <value>Робоча зміна</value>
+  </data>
+  <data name="WorkShiftEnd" xml:space="preserve">
+    <value>Закінчити зміну</value>
+  </data>
+  <data name="WorkShiftStart" xml:space="preserve">
+    <value>Почати зміну</value>
+  </data>
+  <data name="WorkStarted" xml:space="preserve">
+    <value>Зміна почалась</value>
+  </data>
+  <data name="CarNameErrorMessage" xml:space="preserve">
+    <value>Назва має містити менше 50 символів</value>
+  </data>
+  <data name="Citydistricts" xml:space="preserve">
+    <value>Райони міста</value>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>Дія</value>
+  </data>
+  <data name="DistrictEditor" xml:space="preserve">
+    <value>Редактор районів</value>
+  </data>
+  <data name="RequiredError" xml:space="preserve">
+    <value>Данне поле пусте. Будь ласка, заповніть його.</value>
   </data>
 </root>

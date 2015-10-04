@@ -19,23 +19,55 @@ namespace MainSaite.Controllers
 	{
 		public DriverController()
 		{
+			//Nick
+			carManager = new CarManager(base.uOW);
 		}
+		
 		public ActionResult Index()
 		{
-			return View();
+			if (null == Session["User"] || ((UserDTO)Session["User"]).RoleId != (int)AvailableRoles.Driver)
+			{
+				return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+			}
+			else
+			{
+				return View();
+			}
+		}
+		public ActionResult DistrictPart()
+		{
+			ViewBag.Districts = locationManager.GetDriverDistrictInfo(); ;
+			return PartialView(carManager.GetWorkingDrivers());
 		}
 
-		public ActionResult DistrictPart(string userAction)
+		public JsonResult WorkStateChange(int Id, string Latitude, string Longitude)
 		{
-			if (userAction == "WorkStart")
+			try
 			{
-				ViewBag.SubmitValue = "WorkStart";
+
+				carManager.StartWorkEvent(Id);
+				return Json(true);
+
 			}
-			if (userAction == "WorkEnd")
+			catch (DataException)
 			{
-				ViewBag.SubmitValue = "WorkEnd";
+				ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
 			}
-			return PartialView();
+			return Json(false);
+		}
+		public JsonResult WorkStateEnded(int Id, string Latitude, string Longitude)
+		{
+			try
+			{
+				carManager.EndAllCurrentUserShifts(Id);
+				//carManager.EndWorkShiftEvent(user.Id);
+				return Json(true);
+			}
+			catch (DataException)
+			{
+				ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
+			}
+			return Json(false);
 		}
     }
 }

@@ -1,6 +1,7 @@
 ﻿using BAL.Manager;
 using Common.Enum;
 using DAL;
+using MainSaite.Helpers;
 using Model;
 using Model.DTO;
 using System;
@@ -17,13 +18,6 @@ namespace MainSaite.Controllers
 {
 	public class SettingsController : BaseController
 	{
-		UserManager userManager;
-
-		//ASIX
-		DistrictManager districtManager;
-
-		// Nick
-		CarManager carManager;
 		
 
 
@@ -95,15 +89,17 @@ namespace MainSaite.Controllers
 		}
 
 		// Nick: Car info settings
-	
 		public ActionResult CarEditor()
 		{
-		    int? userId = null;
-			if (Session["User"]!=null)
+			if (null == Session["User"] || ((UserDTO)Session["User"]).RoleId != (int)AvailableRoles.Driver)
 			{
-				userId = ((UserDTO)Session["User"]).Id; 
+				return new HttpStatusCodeResult(HttpStatusCode.NotFound);
 			}
-			return View(carManager.getCarsByUserID(userId));
+			else
+			{
+				int userId = ((UserDTO)Session["User"]).Id;
+				return View(carManager.getCarsByUserID(userId));
+			}
 		}
 		// GET:
 		public ActionResult CarCreate()
@@ -214,6 +210,13 @@ namespace MainSaite.Controllers
 			{
 				userManager.SetVIPStatus(UserName);
 			}
+			return RedirectToAction("SetVIPStatus");
+		}
+
+		public ActionResult DeleteVIPUser(VIPClientDTO a)
+		{
+			userManager.deleteVIPById(a.Id);
+			//	districtManager.deleteById(a.Id);
 			return RedirectToAction("SetVIPStatus");
 		}
 

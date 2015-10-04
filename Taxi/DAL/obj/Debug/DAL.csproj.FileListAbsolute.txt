@@ -25,3 +25,9 @@ C:\Users\Nick\Documents\GitHub\Taxi\DAL\obj\Debug\DAL.csproj.GenerateResource.Ca
 C:\Users\Nick\Documents\GitHub\Taxi\DAL\obj\Debug\DAL.dll
 C:\Users\Nick\Documents\GitHub\Taxi\DAL\obj\Debug\DAL.pdb
 C:\Users\Nick\Documents\GitHub\Taxi\DAL\obj\Debug\DAL.Migrations.WorkshiftHistory.resources
+C:\Users\Nick\Documents\GitHub\Taxi\DAL\obj\Debug\DAL.Migrations.Addimagenameforperson.resources
+C:\Users\Nick\Documents\GitHub\Taxi\DAL\obj\Debug\DAL.Migrations.UpdateLocation.resources
+C:\Users\Nick\Documents\GitHub\Taxi\DAL\obj\Debug\DAL.Migrations.WorkshiftChanges.resources
+C:\Users\Nick\Documents\GitHub\Taxi\DAL\obj\Debug\DAL.Migrations.WTF.resources
+C:\Users\Nick\Documents\GitHub\Taxi\DAL\obj\Debug\DAL.Migrations.Tarifes.resources
+C:\Users\Nick\Documents\GitHub\Taxi\DAL\obj\Debug\DAL.Migrations.Tarifes2.resources

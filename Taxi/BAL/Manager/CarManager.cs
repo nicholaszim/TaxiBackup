@@ -79,5 +79,67 @@ namespace BAL.Manager
 			}
 			return null;
 		}
+		public IEnumerable<WorkshiftHistoryDTO> GetWorkingDrivers()
+		{
+			var workingUsers = uOW.WorkshiftHistoryRepo.Get().Where(s => s.WorkEnded == null & s.WorkStarted != null).Select(s => Mapper.Map<WorkshiftHistoryDTO>(s));
+			if (workingUsers != null)
+			{
+				return workingUsers;
+			}
+			return null;
+		}
+		public void StartWorkEvent(int? id)
+		{
+			var worker = uOW.WorkshiftHistoryRepo.Get().Where(s => s.DriverId == id).LastOrDefault(); // get the last entry for a current user
+			var mappedworker = Mapper.Map<WorkshiftHistoryDTO>(worker);
+			if (mappedworker == null) // if entry is empty (if no entry at all)
+			{
+				NewWorkerShift(id); // creating new entry (starting workshift)
+			}
+			else if (worker.WorkEnded == null) // if that last entry is unfinished (no end of workshift)
+			{
+				//var dbworker = Mapper.Map<WorkshiftHistory>(mappedworker);
+				uOW.WorkshiftHistoryRepo.SetStateModified(worker); // finishing that shift 
+				worker.WorkEnded = DateTime.Now;
+				uOW.Save();
+				NewWorkerShift(id); // starting new shift.
+			}
+			else // if entries are exist but all finished - create new entry
+			{
+				NewWorkerShift(id);
+			}
+			
+		}
+		public void NewWorkerShift(int? id)
+		{
+			var newWorker = new WorkshiftHistoryDTO();
+			newWorker.DriverId = (int)id;
+			newWorker.WorkStarted = DateTime.Now;
+			newWorker.WorkEnded = null;
+			var mapWorker = Mapper.Map<WorkshiftHistory>(newWorker);
+			uOW.WorkshiftHistoryRepo.Insert(mapWorker);
+			uOW.Save();
+		}
+		public void EndWorkShiftEvent(int? id)
+		{
+			var worker = uOW.WorkshiftHistoryRepo.Get().Where(s => s.DriverId == id).Last();
+			uOW.WorkshiftHistoryRepo.SetStateModified(worker);
+			worker.WorkEnded = DateTime.Now;
+			uOW.Save();
+		}
+		/// <summary>
+		/// Finishes current driver`s workshift, plus ends all user`s unfinished shifts
+		/// </summary>
+		/// <param name="id">user`s id</param>
+		public void EndAllCurrentUserShifts(int id)
+		{
+			var worker = uOW.WorkshiftHistoryRepo.Get().Where(s => s.DriverId == id).Select(s => s);
+			foreach (var times in worker)
+			{
+				uOW.WorkshiftHistoryRepo.SetStateModified(times);
+				times.WorkEnded = DateTime.Now;
+				uOW.Save();
+			}
+		}
 	}
 }

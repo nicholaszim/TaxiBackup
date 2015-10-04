@@ -5,22 +5,23 @@
 	ViewBag.Title = "CarCreate";
 }
 @Styles.Render("~/Content/BootstrapCallout.css")
+@Styles.Render("~/Content/bootstrap-datetimepicker.css")
 <div>
 	<form method="post">
 		<div class="panel panel-info">
 			<div class="panel-heading">
-				<h3 class="panel-title">[Add new car info]</h3>
+				<h3 class="panel-title">@Resources.Resource.AddNewCar</h3>
 			</div>
 			<div class="bs-callout bs-callout-primary">
-				<h4>Here is car registration page</h4>
-				Enter all required information into the form below.
+				<h4>@Resources.Resource.CreateHeader1</h4>
+				@Resources.Resource.CreateAttention1
 			</div>
 			<div class="bs-callout bs-callout-warning">
-				<h4>Keep in mind</h4>
-				You need to add all information correctly.
+				<h4>@Resources.Resource.CreateHeader2</h4>
+				@Resources.Resource.CreateAttention2
 			</div>
 			<div class="panel-footer">
-				<input class="btn btn-warning" type="reset" value="[Reset]" style="margin: 0 auto; width:200px" />
+				<input class="btn btn-warning" type="reset" value=@Resources.Resource.CarResetBtn style="margin: 0 auto; width:200px" />
 			</div>
 			<div>
 				@Html.AntiForgeryToken()
@@ -67,7 +68,10 @@
 					</tr>
 					<tr>
 						<td><label for="inputCarManufactureDate" class="control-label">@Resources.Resource.CarManufactureDate</label></td>
-						<td><input type="date" class="form-control input-lg" name="CarManufactureDate" placeholder="@Resources.Resource.CarManufactureDate"></td>
+						<td>
+							<input type='text' class="form-control input-lg bootstrap-datetimepicker-widget" id='datetimepicker' name="CarManufactureDate" placeholder="@Resources.Resource.CarManufactureDate" />
+							@*<input type="date" data-provide="datepicker" class="form-control input-lg" name="CarManufactureDate" placeholder="@Resources.Resource.CarManufactureDate">*@
+						</td>
 					</tr>
 					<tr>
 						<td><label for="inputCarState" class="control-label">@Resources.Resource.CarState</label></td>
@@ -86,12 +90,24 @@
 			<div class="panel-footer">
 				<div class="btn-group" role="group" aria-label="...">
 					<input class="btn btn-success" type="submit" value="@Resources.Resource.AddNewCar" style="margin: 0 auto; width:200px" />
-					<input class="btn btn-primary" type="button" value="To menu" onclick="history.go(-1);return true;" style="margin: 0 auto; width:200px" />
+					<input class="btn btn-primary" type="button" value=@Resources.Resource.CarToMenuBtn onclick="history.go(-1);return true;" style="margin: 0 auto; width:200px" />
 				</div>
 			</div>
 		</div>
 	</form>
 </div>
+@section scripts{
+	<script src="~/Scripts/moment.js"></script>
+	<script src="~/Scripts/bootstrap-datetimepicker.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			$('#datetimepicker').datetimepicker({
+				format: 'DD-MM-YYYY',
+				toolbarPlacement: 'top'
+			});
+		});
+	</script>
+}
 
 
 

@@ -9,17 +9,32 @@ namespace MainSaite
         public static void RegisterBundles(BundleCollection bundles)
         {
 			bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-						"~/Scripts/bootstrap.js")); 
+						"~/Scripts/bootstrap.js",
+						"~/Scripts/bootstrap-filestyle.js"));  
 
 			bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
+			bundles.Add(new ScriptBundle("~/bundles/coordinates").Include(
+						"~/Scripts/coordinates.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                         "~/Scripts/jquery-ui-{version}.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+			bundles.Add(new ScriptBundle("~/bundles/tabHelper").Include(
+						"~/Scripts/tabCorrector.js"));
+
+			bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.unobtrusive*",
                         "~/Scripts/jquery.validate*"));
+			
+			bundles.Add(new ScriptBundle("~/bundles/inputmask").Include(
+			"~/Scripts/jquery.inputmask/inputmask.js",
+			"~/Scripts/jquery.inputmask/jquery.inputmask.js",
+						"~/Scripts/jquery.inputmask/inputmask.extensions.js",
+						"~/Scripts/jquery.inputmask/inputmask.date.extensions.js",
+				//and other extensions you want to include
+						"~/Scripts/jquery.inputmask/inputmask.numeric.extensions.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
@@ -29,6 +44,10 @@ namespace MainSaite
 			bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/bootstrap.css",
 																 "~/Content/shop-item.css",
 																 "~/Content/DriverMenu.css"));
+
+			bundles.Add(new ScriptBundle("~/bundles/datetime").Include(
+																	"~/Scripts/moment*",
+																	"~/Scripts/bootstrap-datetimepicker*"));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",

@@ -42,18 +42,21 @@
   <ItemGroup>
     <Compile Include="DB\Car.cs" />
     <Compile Include="DB\District.cs" />
-    <Compile Include="DB\Localization.cs" />
+    <Compile Include="DB\Location.cs" />
     <Compile Include="DB\Person.cs" />
     <Compile Include="DB\RegistrationModel.cs" />
+    <Compile Include="DB\Tarif.cs" />
     <Compile Include="DB\UserAddress.cs" />
     <Compile Include="DB\VIPClient.cs" />
     <Compile Include="DB\WorkshiftHistory.cs" />
     <Compile Include="DTO\AddressDTO.cs" />
     <Compile Include="DTO\CarDTO.cs" />
     <Compile Include="DB\LoginModel.cs" />
-    <Compile Include="DTO\LocalizationDTO.cs" />
+    <Compile Include="DTO\DriverDistrictInfoDTO.cs" />
+    <Compile Include="DTO\LocationDTO.cs" />
     <Compile Include="DTO\Pager.cs" />
     <Compile Include="DTO\PersonDTO.cs" />
+    <Compile Include="DTO\TarifDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
     <Compile Include="DTO\VIPClientDTO.cs" />
     <Compile Include="DTO\WrokShiftHistoryDTO.cs" />
@@ -66,6 +69,13 @@
       <Project>{6d19160d-0229-4693-aaf9-b9083c44a3b4}</Project>
       <Name>Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Resources\Resources.csproj">
+      <Project>{3b337bcd-a355-4b1e-a377-34515d1abdcf}</Project>
+      <Name>Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

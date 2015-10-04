@@ -30,22 +30,27 @@
                     @if(Session["User"]==null)
                     { 
                     <li>
-                        @Html.ActionLink("Log in", "Authentification","Account")
+                        @Html.ActionLink(Resources.Resource.Login, "Authentification","Account")
                     </li>
                     <li>
-                        @Html.ActionLink("Sign Up", "Registration", "Account")
+                        @Html.ActionLink(Resources.Resource.SingUp, "Registration", "Account")
                     </li>
                     }
-                    else
+                   else
                     {
                        string q = ((Model.DTO.UserDTO)Session["User"]).UserName;
 
                         <li>
-                            @Html.ActionLink(q,"","")
+                            <a href="/Home/Index"> <img src="~/Images/@ViewBag.ImageName" data-toggle="tooltip" title="@q" class="img-rounded" style="max-width: 40px; max-height: 40px; " /></a>
+                           
                         </li>
+
                         <li>
-                            @Html.ActionLink("Log out", "LogOut", "Account")
+                            @Html.ActionLink("Log out", "LogOut", "Account") 
+                          
                         </li>
+                       
+                        
                     }
 
                 </ul>
@@ -55,33 +60,28 @@
                  @*Links menu by users role*@
                     <div class="list-group">                     
                         <ul class="nav">
-                            @if (ViewBag.UserRoleId == (int)AvailableRoles.Administrator)
+                            @if (ViewBag.UserRoleId == (int)AvailableRoles.Administrator || ViewBag.UserRoleId == (int)AvailableRoles.Operator)
                             {
-                            <li class="list-group-item">@Html.ActionLink("Districts menu", "DistrictEditor", "Settings")</li>}
-                            @if (ViewBag.UserRoleId == (int)AvailableRoles.Administrator)
-                            {
-                            <li class="list-group-item">@Html.ActionLink("UsersMenu", "UsersMenu", "Settings")</li>}
-                            @if (ViewBag.UserRoleId == (int)AvailableRoles.Administrator)
-                            {
-                            <li class="list-group-item">@Html.ActionLink("AddUser", "AddUser", "Administration")</li>}
-                            @if (ViewBag.UserRoleId == (int)AvailableRoles.Client || ViewBag.UserRoleId == (int)AvailableRoles.Administrator)
+                            <li class="list-group-item">@Html.ActionLink("Districts menu", "DistrictEditor", "Settings")</li>
+                                  <li class="list-group-item">@Html.ActionLink("UsersMenu", "UsersMenu", "Settings")</li>
+                                  <li class="list-group-item">@Html.ActionLink("[Tarifes]", "Index", "Tarif")</li>
+                            }
+
+                            @if (ViewBag.UserRoleId == (int)AvailableRoles.Client || ViewBag.UserRoleId == (int)AvailableRoles.Administrator || ViewBag.UserRoleId == (int)AvailableRoles.Driver || ViewBag.UserRoleId == (int)AvailableRoles.Operator || ViewBag.UserRoleId == (int)AvailableRoles.ReportViewer)
                             {
                             <li class="list-group-item">@Html.ActionLink("My Account", "Index", "User")</li>}
-                            @if (ViewBag.UserRoleId == (int)AvailableRoles.Driver || ViewBag.UserRoleId == (int)AvailableRoles.Administrator || ViewBag.UserRoleId == (int)AvailableRoles.Operator)
+                            @if (ViewBag.UserRoleId == (int)AvailableRoles.Driver)
                             {
-                            <li class="list-group-item">@Html.ActionLink("CarEditor", "CarEditor", "Settings")</li>}
-                            @if (ViewBag.UserRoleId == (int)AvailableRoles.Driver || ViewBag.UserRoleId == (int)AvailableRoles.Administrator || ViewBag.UserRoleId == (int)AvailableRoles.Operator)
+                            <li class="list-group-item">@Html.ActionLink(@Resources.Resource.CarEditor, "CarEditor", "Settings")</li>}
+                            @if (ViewBag.UserRoleId == (int)AvailableRoles.Driver)
                             {
-                            <li class="list-group-item">@Html.ActionLink("[Personal]", "Index", "Driver")</li>}
+                            <li class="list-group-item">@Html.ActionLink(Resources.Resource.PersonalCabinet, "Index", "Driver")</li>}
+                            @if (ViewBag.UserRoleId == (int)AvailableRoles.Client)
+                            {
+                            <li class="list-group-item">@Html.ActionLink(@Resources.Resource.TitleLeftMenuUserAddress, "Index", "Address")</li>}
                             @if (ViewBag.UserRoleId == (int)AvailableRoles.Operator || ViewBag.UserRoleId == (int)AvailableRoles.Administrator)
                             {
-                            <li class="list-group-item">@Html.ActionLink("UserAddress", "Index", "Address")</li>}
-                            @if (ViewBag.UserRoleId == (int)AvailableRoles.Operator || ViewBag.UserRoleId == (int)AvailableRoles.Administrator)
-                            {
-                            <li class="list-group-item">@Html.ActionLink("SetVIPStatus", "SetVIPStatus", "Settings")</li>}
-                            @if (ViewBag.UserRoleId == (int)AvailableRoles.Driver || ViewBag.UserRoleId == (int)AvailableRoles.Administrator || ViewBag.UserRoleId == (int)AvailableRoles.Operator)
-                            {
-                            <li class="list-group-item">@Html.ActionLink("Localization", "EditLocation", "Localization")</li>}
+                            <li class="list-group-item">@Html.ActionLink(@Resources.Resource.SetVIPStatusPage, "SetVIPStatus", "Settings")</li>}
 
                         </ul>
                   </div>
@@ -123,6 +123,9 @@
     </div>
 
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/inputmask")
+	@Scripts.Render("~/bundles/bootstrap")
+	@Scripts.Render("~/bundles/datetime")
     @RenderSection("scripts", required: false)
 </body>
 

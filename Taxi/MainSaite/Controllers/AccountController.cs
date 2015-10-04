@@ -15,7 +15,7 @@ namespace MainSaite.Controllers
     public class AccountController : BaseController
     {
 		
-		UserManager userManager = null;
+
 
 		public AccountController()
 		{
@@ -40,8 +40,15 @@ namespace MainSaite.Controllers
 				{
 					if (!userManager.IfEmailExists(user.Email))
 					{
-						userManager.InsertUser(user);
-						return RedirectToAction("Index", "Home");
+						if (userManager.IsUserNameCorrect(user.UserName))
+						{
+							userManager.InsertUser(user);
+							
+							ValidPerson(user);
+							
+							return RedirectToAction("Index", "Home");
+						}
+						else ModelState.AddModelError("", "Login syntax error");
 					}
 					else ModelState.AddModelError("", "Email is already exist");
 				}
@@ -61,15 +68,18 @@ namespace MainSaite.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				if (user != null)
+				var currentUser = userManager.GetByUserName(user.UserName, user.Password);
+				
+				if (currentUser != null)
 				{
+					ValidPerson(currentUser);
 					Session["User"] = userManager.GetByUserName(user.UserName, user.Password);
 					return RedirectToAction("Index", "Home");
 				}
+				else ModelState.AddModelError("", "Wrong password or login");
 			}
-			else ModelState.AddModelError("", "Wrong password or login");
 
-			return View(user);
+			return View();			
         }
 
 		public ActionResult LogOut()
@@ -77,5 +87,17 @@ namespace MainSaite.Controllers
 			Session["User"] = null;
 			return RedirectToAction("Index", "Home");
 		}
+
+	    public void ValidPerson( UserDTO user)
+	    {
+			var currentUser = userManager.GetByUserName(user.UserName, user.Password);
+			var currentPerson = personManager.GetPersonByUserId(currentUser.Id);
+			if (currentPerson == null || currentPerson.ImageName == null)
+			{
+				currentPerson =
+					personManager.InsertPerson(new PersonDTO() { UserId = currentUser.Id, ImageName = "item_0_profile.jpg" });
+				currentPerson.User = currentUser;
+			} 
+	    }
     }
 }

@@ -142,16 +142,20 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\DriverController.cs" />
-    <Compile Include="Controllers\LocalizationController.cs" />
+    <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\SettingsController.cs" />
+    <Compile Include="Controllers\TarifController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\EnumHelper.cs" />
+    <Compile Include="Models\CreateTarifModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-datetimepicker.css" />
+    <Content Include="Content\bootstrap-datetimepicker.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -229,8 +233,12 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
+    <Content Include="Scripts\bootstrap-filestyle.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\coordinates.js" />
     <Content Include="Scripts\jquery-1.11.3.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -241,6 +249,13 @@
     <None Include="Scripts\jquery-1.9.1-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
+    <Content Include="Scripts\jquery.inputmask\inputmask.date.extensions.js" />
+    <Content Include="Scripts\jquery.inputmask\inputmask.extensions.js" />
+    <Content Include="Scripts\jquery.inputmask\inputmask.js" />
+    <Content Include="Scripts\jquery.inputmask\inputmask.numeric.extensions.js" />
+    <Content Include="Scripts\jquery.inputmask\inputmask.phone.extensions.js" />
+    <Content Include="Scripts\jquery.inputmask\inputmask.regex.extensions.js" />
+    <Content Include="Scripts\jquery.inputmask\jquery.inputmask.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -250,6 +265,12 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\tabCorrector.js" />
+    <Content Include="Scripts\UserScript.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -279,22 +300,24 @@
     <Content Include="Views\Settings\CarEditor.cshtml" />
     <Content Include="Views\Settings\CarCreate.cshtml" />
     <Content Include="Views\Settings\CarDetails.cshtml" />
-    <Content Include="Views\Address\CreateAdd.cshtml" />
-    <Content Include="Views\Address\Delete.cshtml" />
-    <Content Include="Views\Address\EditAdd.cshtml" />
+    <Content Include="Views\Address\CreateAddress.cshtml" />
+    <Content Include="Views\Address\DeleteAddress.cshtml" />
+    <Content Include="Views\Address\EditAddress.cshtml" />
     <Content Include="Views\Address\Index.cshtml" />
     <Content Include="Views\Settings\CarEdit.cshtml" />
     <Content Include="Views\Settings\CarDelete.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Driver\Index.cshtml" />
     <Content Include="Views\Settings\SetVIPStatus.cshtml" />
-    <Content Include="Views\Localization\EditLocation.cshtml" />
-    <Content Include="Views\Localization\CreateLocation.cshtml" />
+    <Content Include="Views\Location\EditLocation.cshtml" />
     <Content Include="Views\Driver\DistrictPart.cshtml" />
+    <Content Include="Views\Tarif\Index.cshtml" />
+    <Content Include="Views\Tarif\Create.cshtml" />
+    <Content Include="Views\Tarif\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

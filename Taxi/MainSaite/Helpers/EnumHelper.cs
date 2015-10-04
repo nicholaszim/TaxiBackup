@@ -5,18 +5,21 @@ using System.Web;
 using Common.Enum;
 using System.Threading;
 using Common.Enum.CarEnums;
+using System.Web.Mvc;
+using System.Web.UI.WebControls;
+using System.Collections;
 
 namespace MainSaite.Helpers
 {
 	public static class EnumHelper
 	{
-		public static Dictionary<int,string> GetRoles()
+		public static Dictionary<int, string> GetRoles()
 		{
-			var result = new Dictionary<int,string>();
-			foreach(var val in Enum.GetValues(typeof(AvailableRoles)))
+			var result = new Dictionary<int, string>();
+			foreach (var val in Enum.GetValues(typeof(AvailableRoles)))
 			{
 				string name = "";
-				switch((AvailableRoles)val)
+				switch ((AvailableRoles)val)
 				{
 					case AvailableRoles.Driver:
 						name = Resources.Resource.Driver;
@@ -39,7 +42,7 @@ namespace MainSaite.Helpers
 						break;
 				}
 
-				result.Add((int)val,name);
+				result.Add((int)val, name);
 			}
 			return result;
 		}
@@ -142,6 +145,35 @@ namespace MainSaite.Helpers
 				default:
 					return "";
 			}
+		}
+
+		public static IEnumerable<SelectListItem> GetEnumStrings()
+		{
+			var strings = new Dictionary<string, string>{
+				{"Econom",Resources.Resource.CarClassEconom},
+				{"General",Resources.Resource.CarClassGeneral},
+				{"Premium",Resources.Resource.CarClassPremium},
+			};
+			var result = (IEnumerable<SelectListItem>)strings;
+			return result;
+		}
+
+
+
+		public static ArrayList GetCarStatelLoc(CarStateEnum cce)
+		{
+			ArrayList items = new ArrayList();
+			foreach (var petrolValue in Enum.GetValues(typeof(CarStateEnum)))
+			{
+				var text = EnumHelper.GetStringifyState((CarStateEnum)petrolValue);
+				var eValue = ((int)petrolValue).ToString();
+				if (((int)cce).ToString().Equals(eValue))
+				{
+					items.Add(new ListItem { Text = text, Value = eValue, Selected = true });
+				}
+				else items.Add(new ListItem { Text = text, Value = eValue});
+			}
+			return items;
 		}
 	}
 }
